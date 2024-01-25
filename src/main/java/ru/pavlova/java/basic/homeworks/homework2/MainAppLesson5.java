@@ -10,18 +10,20 @@ public class MainAppLesson5 {
         reverseArray();
     }
 
+    /**
+     * Задание №1
+     * Реализуйте метод, принимающий на вход набор целочисленных массивов, и получающий новый
+     * массив равный сумме входящих;
+     * Пример: {1, 2, 3}
+     *         + {2, 2}
+     *         + {1, 1, 1, 1, 1}
+     *         = {4, 5, 4, 1, 1}
+     */
     private static void sumArrays() {
-//        Реализуйте метод, принимающий на вход набор целочисленных массивов, и получающий новый
-//        массив равный сумме входящих;
-//        Пример: {1, 2, 3}
-//                + {2, 2}
-//                + {1, 1, 1, 1, 1}
-//                = {4, 5, 4, 1, 1}
         int[] arr = {1, 1, 1};
         int[] arr2 = {2, 2, 2, 2};
         int[] arr3 = {3, 3, 3, 3, 3};
         int maxSize = Integer.max(Integer.max(arr.length, arr2.length), arr3.length);
-
         int[] sum = new int[maxSize];
         for (int i = 0; i < maxSize; i++) {
             if (i < arr.length) {
@@ -39,18 +41,19 @@ public class MainAppLesson5 {
         System.out.println("= " + Arrays.toString(sum));
     }
 
+    /**
+     * Задание №2
+     * Реализуйте метод, проверяющий что есть “точка” в массиве, в которой сумма левой и правой части
+     *         равны. “Точка находится между элементами”;
+     *        Пример: { 1, 1, 1, 1, 1, | 5 }, { 5, | 3, 4, -2 }, { 7, 2, 2, 2 }, { 9, 4 }
+     */
     private static void sumOfParts() {
-//        Реализуйте метод, проверяющий что есть “точка” в массиве, в которой сумма левой и правой части
-//        равны. “Точка находится между элементами”;
-//        Пример: { 1, 1, 1, 1, 1, | 5 }, { 5, | 3, 4, -2 }, { 7, 2, 2, 2 }, { 9, 4 }
         int[] arr = {5, 2, 1, 8};
         String[] strArr = new String[arr.length];
-
         int totalSum = 0;
         for (int i = 0; i < arr.length; i++) {
             totalSum += arr[i];
         }
-
         int leftSum = 0;
         for (int i = 0; i < arr.length; i++) {
             leftSum += arr[i];
@@ -64,8 +67,11 @@ public class MainAppLesson5 {
         System.out.println(Arrays.toString(strArr));
     }
 
+    /**
+     * Задание №3
+     * Реализуйте метод, проверяющий что все элементы массива идут в порядке убывания
+     */
     private static void decreaseArray() {
-//        Реализуйте метод, проверяющий что все элементы массива идут в порядке убывания
         int[] arrDesc = {5, 1, -8, -10, 73};
         boolean arrCheck = true;
         for (int i = 1; i < arrDesc.length; i++) {
@@ -78,12 +84,14 @@ public class MainAppLesson5 {
         System.out.println(arrCheck);
     }
 
+    /**
+     * Задание №4
+     * Реализуйте метод, “переворачивающий” входящий массив
+     * Пример: { 1 2 3 4 } => { 4 3 2 1 }
+     */
     private static void reverseArray() {
-//        Реализуйте метод, “переворачивающий” входящий массив
-//        Пример: { 1 2 3 4 } => { 4 3 2 1 }
         int[] arrReverse = {1, 2, 3, 4};
         int[] arrReverse2 = new int[arrReverse.length];
-
         for (int i = 0; i < arrReverse.length; i++) {
             arrReverse2[i] = arrReverse[i];
         }
