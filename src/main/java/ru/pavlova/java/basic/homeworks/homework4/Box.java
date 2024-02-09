@@ -3,25 +3,39 @@ package ru.pavlova.java.basic.homeworks.homework4;
 /**
  * Класс Box.
  * Представляет собой коробку с заданными размерами, цветом и возможностью открываться и закрываться.
+ *
  * @autor Виктория Павлова
  */
 public class Box {
 
-    /** Ширина коробки */
+    /**
+     * Ширина коробки
+     */
     private double width;
-    /** Высота коробки */
+    /**
+     * Высота коробки
+     */
     private double height;
-    /** Глубина коробки */
+    /**
+     * Глубина коробки
+     */
     private double depth;
-    /** Цвет коробки */
+    /**
+     * Цвет коробки
+     */
     private String color;
-    /** Статус коробки: открыта или закрыта */
+    /**
+     * Статус коробки: открыта или закрыта
+     */
     private boolean isOpen;
-    /** Предмет, находящийся в коробке */
+    /**
+     * Предмет, находящийся в коробке
+     */
     private String item;
 
     /**
      * Конструктор класса Box.
+     *
      * @param width  ширина коробки
      * @param height высота коробки
      * @param depth  глубина коробки
@@ -41,9 +55,8 @@ public class Box {
      * если коробка уже открыта, выводит сообщение о том, что она уже открыта.
      * если коробка закрыта, открывает ее и выводит сообщение.
      */
-    public void openBox() {
-        if (isOpen) {
-        } else {
+    public void open() {
+        if (!isOpen) {
             isOpen = true;
         }
     }
@@ -53,7 +66,7 @@ public class Box {
      * если коробка уже закрыта, выводит сообщение о том, что она уже закрыта.
      * если коробка открыта, закрывает ее и выводит сообщение.
      */
-    public void closeBox() {
+    public void close() {
         if (!isOpen) {
         } else {
             isOpen = false;
@@ -62,6 +75,7 @@ public class Box {
 
     /**
      * Метод перекрашивает коробку в заданный цвет.
+     *
      * @param newColor новый цвет для перекраски коробки
      */
     public void repaintBox(String newColor) {
@@ -84,11 +98,13 @@ public class Box {
 
     /**
      * Метод помещает предмет в коробку, если она открыта.
+     *
      * @param item предмет, который требуется поместить в коробку
      */
     public void putItem(String item) {
-        openBox();
+        open();
         if (this.item != null) {
+            System.out.println("В коробке нет места");
         } else {
             this.item = item;
             System.out.println("Предмет " + item + " в коробке");
