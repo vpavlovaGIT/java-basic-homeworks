@@ -43,10 +43,8 @@ public class Box {
      */
     public void openBox() {
         if (isOpen) {
-            System.out.println("Коробка уже открыта");
         } else {
             isOpen = true;
-            System.out.println("Коробка открыта");
         }
     }
 
@@ -57,10 +55,8 @@ public class Box {
      */
     public void closeBox() {
         if (!isOpen) {
-            System.out.println("Коробка уже закрыта");
         } else {
             isOpen = false;
-            System.out.println("Коробка закрыта");
         }
     }
 
@@ -79,7 +75,6 @@ public class Box {
     public void printBoxInfo() {
         System.out.println("Размеры коробки: " + width + " x " + height + " x " + depth);
         System.out.println("Цвет коробки: " + color);
-        System.out.println("Состояние коробки: " + (isOpen ? "открыта" : "закрыта"));
         if (item != null) {
             System.out.println("В коробке лежит предмет: " + item);
         } else {
@@ -92,11 +87,11 @@ public class Box {
      * @param item предмет, который требуется поместить в коробку
      */
     public void putItem(String item) {
+        openBox();
         if (this.item != null) {
-            System.out.println("В коробке уже есть предмет");
         } else {
             this.item = item;
-            System.out.println("Предмет " + item + " положен в коробку");
+            System.out.println("Предмет " + item + " в коробке");
         }
     }
 
