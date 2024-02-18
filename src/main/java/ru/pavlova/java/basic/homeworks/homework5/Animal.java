@@ -6,14 +6,16 @@ public class Animal {
     private double runningSpeed;
     private double swimmingSpeed;
     private int hardiness;
+    private int swimmEnergy;
     private boolean tired;
 
-    public Animal(String name, double runningSpeed, double swimmingSpeed, int hardiness) {
+    public Animal(String name, double runningSpeed, double swimmingSpeed, int hardiness, int swimmEnergy) {
         this.name = name;
         this.runningSpeed = runningSpeed;
         this.swimmingSpeed = swimmingSpeed;
         this.hardiness = hardiness;
         this.tired = false;
+        this.swimmEnergy = swimmEnergy;
     }
 
     public double getRunningSpeed() {
