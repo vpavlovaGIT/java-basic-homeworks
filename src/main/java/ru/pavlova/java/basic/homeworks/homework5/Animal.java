@@ -8,7 +8,7 @@ public class Animal {
     private int hardiness;
     private boolean tired;
 
-    public Animal(String name, double runningSpeed, double swimmingSpeed, int endurance) {
+    public Animal(String name, double runningSpeed, double swimmingSpeed, int hardiness) {
         this.name = name;
         this.runningSpeed = runningSpeed;
         this.swimmingSpeed = swimmingSpeed;
