@@ -4,26 +4,18 @@ public class Animal {
 
     private String name;
     private double runningSpeed;
-    private double swimmingSpeed;
-    private int hardiness;
-    private int swimmEnergy;
-    private boolean tired;
+    int hardiness;
+    boolean tired;
 
-    public Animal(String name, double runningSpeed, double swimmingSpeed, int hardiness, int swimmEnergy) {
+    public Animal(String name, double runningSpeed, int hardiness) {
         this.name = name;
         this.runningSpeed = runningSpeed;
-        this.swimmingSpeed = swimmingSpeed;
         this.hardiness = hardiness;
         this.tired = false;
-        this.swimmEnergy = swimmEnergy;
     }
 
     public double getRunningSpeed() {
         return runningSpeed;
-    }
-
-    public double getSwimmingSpeed() {
-        return swimmingSpeed;
     }
 
     public int getHardiness() {
@@ -42,32 +34,6 @@ public class Animal {
         } else {
             tired = true;
             time = -1;
-        }
-        return time;
-    }
-
-    public double swim(int distance) {
-        double time = -1;
-        if (this instanceof Dog) {
-            time = distance / swimmingSpeed;
-            int hardinessCost = distance * 2;
-            if (hardinessCost <= hardiness) {
-                hardiness -= hardinessCost;
-            } else {
-                tired = true;
-                time = -1;
-            }
-        } else if (this instanceof Horse) {
-            time = distance / swimmingSpeed;
-            int hardinessCost = distance * 4;
-            if (hardinessCost <= hardiness) {
-                hardiness -= hardinessCost;
-            } else {
-                tired = true;
-                time = -1;
-            }
-        } else {
-            System.out.println("Коты не умеют плавать!");
         }
         return time;
     }
