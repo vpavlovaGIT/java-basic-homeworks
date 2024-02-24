@@ -23,7 +23,7 @@ public class Person {
     }
 
     public void exitTransport() {
-        System.out.println(name + " вышел(а) из транспорта");
+        System.out.println(name + " покинул(а) средство передвижения");
         currentTransport = null;
     }
 }
