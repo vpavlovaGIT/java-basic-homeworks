@@ -3,28 +3,21 @@ package ru.pavlova.java.basic.homeworks.homework9;
 import java.util.*;
 
 public class PhoneBook {
-    private Map<String, Set<String>> phoneBook;
+    private Map<String, Person> contactsPhone;
 
     public PhoneBook() {
-        this.phoneBook = new HashMap<>();
+        this.contactsPhone = new HashMap<>();
     }
 
-    public void add(String name, String phoneNumber) {
-        Set<String> phoneNumbers = phoneBook.getOrDefault(name, new HashSet<>());
-        phoneNumbers.add(phoneNumber);
-        phoneBook.put(name, phoneNumbers);
+    public void add(String phoneNumber, Person person) {
+        contactsPhone.put(phoneNumber, person);
     }
 
-    public Set<String> find(String name) {
-        return phoneBook.getOrDefault(name, Collections.emptySet());
+    public Person find(String phoneNumber) {
+        return contactsPhone.get(phoneNumber);
     }
 
     public boolean containsPhoneNumber(String phoneNumber) {
-        for (Set<String> numbers : phoneBook.values()) {
-            if (numbers.contains(phoneNumber)) {
-                return true;
-            }
-        }
-        return false;
+        return contactsPhone.containsKey(phoneNumber);
     }
 }
