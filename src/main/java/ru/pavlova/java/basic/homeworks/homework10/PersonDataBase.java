@@ -1,26 +1,21 @@
 package ru.pavlova.java.basic.homeworks.homework10;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PersonDataBase {
-    private List<Person> personList;
+    private Map<Long, Person> personMap;
 
     public PersonDataBase() {
-        personList = new ArrayList<>();
+        personMap = new HashMap<>();
     }
 
     public Person findById(Long id) {
-        for (Person person : personList) {
-            if (person.getId().equals(id)) {
-                return person;
-            }
-        }
-        return null;
+        return personMap.get(id);
     }
 
     public void add(Person person) {
-        personList.add(person);
+        personMap.put(person.getId(), person);
     }
 
     public boolean isManager(Person person) {
@@ -29,12 +24,7 @@ public class PersonDataBase {
     }
 
     public boolean isEmployee(Long id) {
-        for (Person person : personList) {
-            if (person.getId().equals(id)) {
-                return person.getPosition() != Position.MANAGER && person.getPosition() != Position.DIRECTOR &&
-                        person.getPosition() != Position.BRANCH_DIRECTOR && person.getPosition() != Position.SENIOR_MANAGER;
-            }
-        }
-        return false;
+        Person person = personMap.get(id);
+        return person != null && !isManager(person);
     }
 }
