@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class MainAppLesson18 {
 
     public static void main(String[] args) {
-        File rootFolder = new File(System.getProperty("user.dir"));
+        File rootFolder = new File(".");
         File[] files = rootFolder.listFiles();
         String name;
         System.out.println("Список текстовых файлов в корневом каталоге проекта:");
@@ -26,7 +26,6 @@ public class MainAppLesson18 {
         try {
             if (selectedFile.exists() && selectedFile.isFile()) {
                 System.out.println("Файл " + selectedFile.getName() + " существует.");
-                System.out.println("Директория файла: " + selectedFile.getParent());
                 System.out.println("Введите строку для записи в файл:");
                 String userInput = scanner.nextLine();
                 FileWriter fileWriter = new FileWriter(selectedFile, true);
