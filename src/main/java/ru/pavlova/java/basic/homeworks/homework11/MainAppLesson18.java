@@ -10,14 +10,7 @@ public class MainAppLesson18 {
     public static void main(String[] args) {
         File rootFolder = new File(".");
         File[] files = rootFolder.listFiles();
-        String name;
-        System.out.println("Список текстовых файлов в корневом каталоге проекта:");
-        for (File file : files) {
-            if (file.exists() && file.isFile() && file.getName().endsWith(".txt")) {
-                name = file.getName();
-                System.out.println(name);
-            }
-        }
+        getListFiles(files);
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите имя файла: ");
@@ -40,6 +33,17 @@ public class MainAppLesson18 {
             System.out.println("Ошибка при записи в файл: " + e.getMessage());
         } finally {
             scanner.close();
+        }
+    }
+
+    private static void getListFiles(File[] files) {
+        System.out.println("Список текстовых файлов в корневом каталоге проекта:");
+        String name;
+        for (File file : files) {
+            if (file.exists() && file.isFile() && file.getName().endsWith(".txt")) {
+                name = file.getName();
+                System.out.println(name);
+            }
         }
     }
 }
