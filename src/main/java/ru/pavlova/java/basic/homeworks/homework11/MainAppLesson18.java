@@ -30,6 +30,7 @@ public class MainAppLesson18 {
                     fos.write(bytes);
                     fos.write(System.lineSeparator().getBytes());
                     System.out.println("Строка успешно записана в файл побайтово.");
+                    readAfter(selectedFile);
                 } catch (IOException e) {
                     System.out.println("Ошибка при записи в файл: " + e.getMessage());
                 }
@@ -38,6 +39,18 @@ public class MainAppLesson18 {
             }
         } finally {
             scanner.close();
+        }
+    }
+
+    private static void readAfter(File selectedFile) {
+        System.out.println("Содержимое файла после заполнения:");
+        try (BufferedReader reader = new BufferedReader(new FileReader(selectedFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
     }
 
