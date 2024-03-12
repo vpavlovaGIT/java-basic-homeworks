@@ -1,9 +1,6 @@
 package ru.pavlova.java.basic.homeworks.homework11;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class MainAppLesson18 {
@@ -22,6 +19,7 @@ public class MainAppLesson18 {
 
     private static void writeToFile(Scanner scanner, File selectedFile) {
         try {
+            readBefore(selectedFile);
             if (selectedFile.exists() && selectedFile.isFile()) {
                 System.out.println("Файл " + selectedFile.getName() + " существует.");
                 System.out.println("Введите строку для записи в файл:");
@@ -40,6 +38,18 @@ public class MainAppLesson18 {
             }
         } finally {
             scanner.close();
+        }
+    }
+
+    private static void readBefore(File selectedFile) {
+        System.out.println("Содержимое файла до заполнения:");
+        try (BufferedReader reader = new BufferedReader(new FileReader(selectedFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            System.out.println("Ошибка при чтении файла: " + e.getMessage());
         }
     }
 
