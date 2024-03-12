@@ -1,6 +1,7 @@
 package ru.pavlova.java.basic.homeworks.homework11;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -16,21 +17,27 @@ public class MainAppLesson18 {
         System.out.println("Введите имя файла: ");
         String fileName = scanner.nextLine();
         File selectedFile = new File(rootFolder, fileName);
+        writeToFile(scanner, selectedFile);
+    }
+
+    private static void writeToFile(Scanner scanner, File selectedFile) {
         try {
             if (selectedFile.exists() && selectedFile.isFile()) {
                 System.out.println("Файл " + selectedFile.getName() + " существует.");
                 System.out.println("Введите строку для записи в файл:");
                 String userInput = scanner.nextLine();
-                FileWriter fileWriter = new FileWriter(selectedFile, true);
-                fileWriter.write(userInput + System.lineSeparator());
-                fileWriter.close();
+                byte[] bytes = userInput.getBytes();
 
-                System.out.println("Строка успешно записана в файл.");
+                try (FileOutputStream fos = new FileOutputStream(selectedFile, true)) {
+                    fos.write(bytes);
+                    fos.write(System.lineSeparator().getBytes());
+                    System.out.println("Строка успешно записана в файл побайтово.");
+                } catch (IOException e) {
+                    System.out.println("Ошибка при записи в файл: " + e.getMessage());
+                }
             } else {
                 System.out.println("Файл " + selectedFile.getName() + " не существует или не является файлом.");
             }
-        } catch (IOException e) {
-            System.out.println("Ошибка при записи в файл: " + e.getMessage());
         } finally {
             scanner.close();
         }
