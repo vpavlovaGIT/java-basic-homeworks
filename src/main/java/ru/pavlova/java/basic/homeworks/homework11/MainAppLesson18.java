@@ -44,7 +44,8 @@ public class MainAppLesson18 {
 
     private static void readAfter(File selectedFile) {
         System.out.println("Содержимое файла после заполнения:");
-        try (BufferedReader reader = new BufferedReader(new FileReader(selectedFile))) {
+        try (FileInputStream fis = new FileInputStream(selectedFile);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(fis))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
@@ -56,7 +57,8 @@ public class MainAppLesson18 {
 
     private static void readBefore(File selectedFile) {
         System.out.println("Содержимое файла до заполнения:");
-        try (BufferedReader reader = new BufferedReader(new FileReader(selectedFile))) {
+        try (FileInputStream fis = new FileInputStream(selectedFile);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(fis))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
