@@ -28,6 +28,7 @@ public class Server {
 
     private static void calculate(DataInputStream inputStream, DataOutputStream outputStream) throws IOException {
         while (true) {
+            outputStream.writeUTF("Доступные операции: +, -, *, /");
             String operation = inputStream.readUTF();
             int num1 = inputStream.readInt();
             int num2 = inputStream.readInt();

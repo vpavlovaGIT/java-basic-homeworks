@@ -24,7 +24,9 @@ public class Client {
 
     private static void count(DataInputStream inputStream, DataOutputStream outputStream, Scanner scanner) throws IOException {
         while (true) {
-            System.out.print("Введите операцию (+, -, *, /): ");
+            String operationMessage = inputStream.readUTF();
+            System.out.println(operationMessage);
+            System.out.print("Введите операцию: ");
             String operation = scanner.nextLine();
             System.out.print("Введите первое число: ");
             int num1 = Integer.parseInt(scanner.nextLine());
